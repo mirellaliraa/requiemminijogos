@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recompensa Recebida</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      color: #3233ff;
+      font-family: 'Press Start 2P', monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      gap: 24px;
+    }
+
+    img {
+      width: 80px;
+      height: 80px;
+      image-rendering: pixelated;
+    }
+
+    .recompensa-text {
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 32px;
+      background: transparent;
+      border: 2px solid #3233ff;
+      color: #3233ff;
+      font-size: 12px;
+      font-family: 'Press Start 2P', monospace;
+      cursor: pointer;
+      box-shadow: 0 0 6px #3233ff;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    button:hover {
+      background: #3233ff;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="recompensa-text">Recompensa recebida</div>
+  <img src="bateria_litio.png" alt="Bateria de Lítio" />
+  <div class="recompensa-text">Leve até a placa mãe.</div>
+  <button onclick="confirmar()">ok</button>
+</body>
+</html>
