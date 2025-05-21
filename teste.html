@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Minigame de Anagramas</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #d3eafd;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #a9d0f5;
+      border-radius: 40px;
+      padding: 40px;
+      width: 400px;
+      text-align: center;
+    }
+
+    .caixinha {
+      background-color: #d9f5b4;
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .anagrama {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    input {
+      font-size: 18px;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      width: 80%;
+      background-color: #f7fcb6;
+      text-align: center;
+    }
+
+    button {
+      margin-top: 15px;
+      font-size: 24px;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+    }
+
+    #check {
+      font-size: 80px;
+      color: #42b983;
+      display: none;
+    }
+
+    #frase {
+      font-size: 18px;
+      margin-top: 20px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="caixinha">
+    <div class="anagrama" id="anagrama">AIVDO</div>
+    <input type="text" id="resposta" placeholder="_____">
+    <br>
+    <button id="verificarBtn" onclick="verificarResposta()">➜</button>
+  </div>
+
+  <div id="check">✔️</div>
+  <div id="frase"></div>
+</div>
+
+<script>
+  const palavras = [
+    { original: "viado", anagrama: "aivdo" },
+    { original: "gosta", anagrama: "tsago" },
+    { original: "de", anagrama: "ed" },
+    { original: "você", anagrama: "evocê" }
+  ];
+
+  let indice = 0;
+  let fraseFinal = [];
+
+  const anagramaEl = document.getElementById("anagrama");
+  const respostaEl = document.getElementById("resposta");
+  const checkEl = document.getElementById("check");
+  const fraseEl = document.getElementById("frase");
+
+  function mostrarAnagrama() {
+    anagramaEl.textContent = palavras[indice].anagrama.toUpperCase();
+    respostaEl.value = "";
+    respostaEl.placeholder = "_".repeat(palavras[indice].original.length);
+    respostaEl.focus();
+  }
+
+  function verificarResposta() {
+    const resposta = respostaEl.value.trim().toLowerCase();
+    const correta = palavras[indice].original.toLowerCase();
+
+    if (resposta === correta) {
+      fraseFinal.push(palavras[indice].original);
+      indice++;
+      if (indice < palavras.length) {
+        mostrarAnagrama();
+      } else {
+        document.querySelector(".caixinha").style.display = "none";
+        checkEl.style.display = "block";
+        fraseEl.textContent = "Frase formada: " + fraseFinal.join(" ");
+      }
+    } else {
+      respostaEl.style.backgroundColor = "#f8d7da";
+      setTimeout(() => {
+        respostaEl.style.backgroundColor = "#f7fcb6";
+      }, 500);
+    }
+  }
+
+  mostrarAnagrama();
+</script>
+
+</body>
+</html>
