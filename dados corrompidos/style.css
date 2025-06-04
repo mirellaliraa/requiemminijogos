@@ -4,12 +4,14 @@ body {
     color: #3233ff;
     font-family: 'Press Start 2P', monospace;
     text-align: center;
+    font-size: 12px;
     align-items: center;
     image-rendering: pixelated;
     overflow: hidden;
   }
 
   .container {
+    margin-top: 40px;
     width: 60vh;
     border: 2px solid #3233ff;
     box-shadow: 0 0 20px #3233ff;
@@ -21,23 +23,22 @@ body {
 
   .caixa {
     padding: 40px;
-    margin-bottom: 20px;
   }
 
   .anagrama {
-    font-size: 24px;
+    font-size: 25px;
     font-weight: bold;
     color: #555;
     text-align: center;
     margin-right: 30px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
 
   input {
     caret-color: transparent;
-    width: 300px;
+    width: 305px;
+    height: 20px;
     padding: 15px;
-    font-size: 18px;
     border: 2px solid #00f;
     border-radius: 5px;
     box-shadow: 0 0 10px #00f;
@@ -46,28 +47,22 @@ body {
     cursor: text;
   }
 
-  #check {
-    font-size: 80px;
-    color: #42b983;
-    display: none;
-  }
-
   #frase {
+    font-family: 'Press Start 2P', monospace;
     font-size: 18px;
-    margin-top: 20px;
-    font-style: italic;
+    display: block;
   }
   
   #verificarBtn {
     background-color: #000;
-    padding: 8px 13px 12px;
+    padding: 5px 8px;
     font-size: 18px;
     color: #3233ff;
     border: 2px solid #3233ff;
     box-shadow: 0 0 8px #3233ff;
     font-family: 'Press Start 2P', monospace;
     border-radius: 5px;
-    cursor: pointer;
+    cursor: pointer;;
   }
 
   #verificarBtn:hover {
@@ -77,12 +72,12 @@ body {
 
   #resposta {
     outline: none;
-    margin-top: 10px;
+    margin-top: 0px;
     padding: 12px 32px;
     background: transparent;
     border: 2px solid #3233ff;
     color: #ffffff;
-    font-size: 14px;
+    font-size: 18px;
     font-family: 'Press Start 2P', monospace;
     border-radius: 0;
     box-shadow: 0 0 8px #3233ff;
@@ -97,7 +92,8 @@ body {
   
   #continueBtn {
     display: none;
-    margin-top: 10px;
+    margin-left: 84vh;
+    margin-top: 15px;
     padding: 12px 32px;
     background: transparent;
     border: 2px solid #3233ff;
@@ -115,7 +111,7 @@ body {
     color: #000;
     animation: glitch 0.6s infinite;
   }
-  
+
   @keyframes glitch {
     0% { transform: translate(0, 0); }
     20% { transform: translate(-1px, 1px); }

@@ -1,5 +1,5 @@
 const palavras = [
-    { original: "fragmentos", anagrama: "sogarnfret" },
+    { original: "Fragmentos", anagrama: "sogarnFret" },
     { original: "do", anagrama: "od" },
     { original: "mundo", anagrama: "odmnu" },
     { original: "ainda", anagrama: "aidan" },
@@ -11,13 +11,18 @@ let indice = 0;
 
   const anagramaEl = document.getElementById("anagrama");
   const respostaEl = document.getElementById("resposta");
-  const checkEl = document.getElementById("check");
   const fraseEl = document.getElementById("frase");
+
+  respostaEl.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      verificarResposta();
+    }
+  });
 
   function mostrarAnagrama() {
     anagramaEl.textContent = palavras[indice].anagrama.toUpperCase();
     respostaEl.value = "";
-    respostaEl.placeholder = "_".repeat(palavras[indice].original.length);
+    respostaEl.placeholder = "Resposta"(palavras[indice].original.length);
     respostaEl.focus();
   }
 
@@ -26,21 +31,35 @@ let indice = 0;
     const correta = palavras[indice].original.toLowerCase();
 
     if (resposta === correta) {
+      respostaEl.style.backgroundColor = "transparent";
       fraseFinal.push(palavras[indice].original);
       indice++;
       if (indice < palavras.length) {
         mostrarAnagrama();
       } else {
-        document.querySelector(".caixinha").style.display = "none";
-        checkEl.style.display = "block";
-        fraseEl.textContent = "Frase formada: " + fraseFinal.join(" ");
+        document.querySelector(".caixa").style.display = "none";
+        function mostrarFraseComTyping(texto, elemento, velocidade = 50) {
+      elemento.innerHTML = "";
+      let i = 0;
+      function digitar() {
+        if (i < texto.length) {
+        elemento.innerHTML += texto.charAt(i);
+        i++;
+        setTimeout(digitar, velocidade);
+      }
+    }
+    digitar();
+  }
+        document.getElementById("continueBtn").style.display = "block";
       }
     } else {
-      respostaEl.style.backgroundColor = "#f8d7da";
-      setTimeout(() => {
-        respostaEl.style.backgroundColor = "#f7fcb6";
-      }, 500);
+      respostaEl.style.backgroundColor = "#FF0000";
     }
+    mostrarFraseComTyping(" " + fraseFinal.join(" "), fraseEl);
   }
+
+  document.getElementById("continueBtn").addEventListener("click", function() {
+  window.location.href = "recompensa.html";
+});
 
   mostrarAnagrama();
