@@ -1,5 +1,5 @@
 const palavras = [
-    { original: "Fragmentos", anagrama: "sogarnFret" },
+    { original: "Fragmentos", anagrama: "sogarnFretm" },
     { original: "do", anagrama: "od" },
     { original: "mundo", anagrama: "odmnu" },
     { original: "ainda", anagrama: "aidan" },
