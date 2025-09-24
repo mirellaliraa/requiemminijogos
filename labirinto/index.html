@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Labirinto</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="card">
+        <header>
+            <h1>Siga o mapa e resolva o labirinto</h1>
+        </header>
+
+        <div class="game-row">
+            <canvas id="mazeCanvas" width="560" height="560"></canvas>
+            <div class="controles" aria-hidden="false">
+                <div class="directions" aria-label="Controles">
+                    <div></div>
+                    <button id="upBtn">▲</button>
+                    <div></div>
+
+                    <button id="leftBtn">◀</button>
+                    <button id="rightBtn">▶</button>
+
+                    <div></div>
+                    <button id="downBtn">▼</button>
+                    <div></div>
+                </div>
+                <button id="resetBtn" class="small secondary">Reiniciar</button>
+            </div>
+            <button id="continueBtn">Pegar recompensa</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
